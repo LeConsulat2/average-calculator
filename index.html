@@ -3,55 +3,96 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Income Calculator</title>
+    <title>StudentHub Calculator</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <div class="container">
       <div>
         <p>
-          Note: Please use this calculator only for a quick overview of your
-          student's financial situation. For a detailed summary, review the bank
-          statements provided by the student. Remember to also consider any
-          one-off payments mentioned by the student as the Income Calculator
-          does not account for these.
+          Note: Please use this calculator only for a quick overview of the
+          financial situation. For a detailed summary, review the bank
+          statements received. Remember to also consider any one-off payments
+          incomes as the Income Calculator does not account for these.
         </p>
       </div>
-      <h1>Income Calculator</h1>
-      <form id="income-form">
-        <div class="income-source">
-          <label for="weekly">Weekly: </label>
-          <input
-            type="number"
-            id="weekly"
-            name="weekly"
-            placeholder="Enter weekly income"
-          />
-        </div>
-        <div class="income-source">
-          <label for="fortnightly">Fortnightly: </label>
-          <input
-            type="number"
-            id="fortnightly"
-            name="fortnightly"
-            placeholder="Enter fortnightly income"
-          />
-        </div>
-        <div class="income-source">
-          <label for="monthly">Monthly: </label>
-          <input
-            type="number"
-            id="monthly"
-            name="monthly"
-            placeholder="Enter monthly income"
-          />
-        </div>
-        <div class="income-source">
-          <label for="oneoff">Please Do Not Forget Any One-Off incomes! </label>
-        </div>
-        <button type="button" onclick="calculateIncome()">Calculate</button>
-      </form>
-      <div id="result" class="fade-out"></div>
+      <div class="calculator">
+        <section class="income-section">
+          <h2>Income</h2>
+          <form id="income-form">
+            <div class="income-source">
+              <label for="weekly">Weekly: </label>
+              <input
+                type="number"
+                id="weekly"
+                name="weekly"
+                placeholder="Enter weekly income"
+              />
+            </div>
+            <div class="income-source">
+              <label for="fortnightly">Fortnightly: </label>
+              <input
+                type="number"
+                id="fortnightly"
+                name="fortnightly"
+                placeholder="Enter fortnightly income"
+              />
+            </div>
+            <div class="income-source">
+              <label for="monthly">Monthly: </label>
+              <input
+                type="number"
+                id="monthly"
+                name="monthly"
+                placeholder="Enter monthly income"
+              />
+            </div>
+          </form>
+          <button type="button" onclick="calculateIncome()">
+            Calculate Income
+          </button>
+          <div id="income-result"></div>
+        </section>
+        <section class="expenses-section">
+          <h2>Expenses</h2>
+          <form id="expense-form">
+            <div class="expense-source">
+              <label for="expense-name-1">Source: </label>
+              <input
+                type="text"
+                id="expense-name-1"
+                name="expense-name-1"
+                placeholder="Enter expense name"
+              />
+              <label for="expense-frequency-1">Frequency: </label>
+              <select id="expense-frequency-1" name="expense-frequency-1">
+                <option value="weekly">Weekly</option>
+                <option value="fortnightly">Fortnightly</option>
+                <option value="monthly">Monthly</option>
+              </select>
+              <label for="expense-total-1">Total: </label>
+              <input
+                type="number"
+                id="expense-total-1"
+                name="expense-total-1"
+                placeholder="Enter total amount"
+              />
+            </div>
+          </form>
+          <button type="button" id="add-expense">Add Expense</button>
+          <div id="expenses-summary"></div>
+          <button type="button" onclick="calculateExpenses()">
+            Calculate Expenses
+          </button>
+          <div id="expense-result"></div>
+        </section>
+        <section class="total-section">
+          <button type="button" onclick="calculateTotal()">
+            Calculate Total (Income - Expenses)
+          </button>
+          <div id="total-result"></div>
+        </section>
+      </div>
     </div>
     <script src="scripts.js"></script>
   </body>

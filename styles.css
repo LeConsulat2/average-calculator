@@ -6,7 +6,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 130vh;
   margin: 0;
 }
 
@@ -15,24 +15,47 @@ body {
   padding: 30px 50px;
   border-radius: 15px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  max-width: 500px;
+  max-width: 900px;
   width: 100%;
   text-align: center;
-  /* transition: transform 0.3s ease-in-out; */
+  transition: transform 0.3s ease-in-out;
 }
 
-/* .container:hover {
+.container:hover {
   transform: translateY(-10px);
-} */
-
-h1 {
-  margin-bottom: 25px;
-  color: #333;
-  font-weight: 600;
 }
 
-.income-source {
+.note {
   margin-bottom: 20px;
+  font-size: 14px;
+  color: #666;
+  text-align: left;
+}
+
+.calculator {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+section {
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  flex: 1;
+}
+
+h2 {
+  margin-bottom: 20px;
+  color: #444;
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.income-source,
+.expense-source {
+  margin-bottom: 15px;
   text-align: left;
 }
 
@@ -43,16 +66,19 @@ label {
   font-weight: 600;
 }
 
-input {
-  width: 100%;
-  padding: 12px;
+input,
+select {
+  width: calc(100% - 10px);
+  padding: 10px;
+  margin-bottom: 10px;
   border: 1px solid #ddd;
   border-radius: 8px;
   box-sizing: border-box;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-input:focus {
+input:focus,
+select:focus {
   border-color: #007bff;
   box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
@@ -65,7 +91,7 @@ button {
   border-radius: 8px;
   cursor: pointer;
   transition: background 0.3s ease, transform 0.3s ease;
-  margin-top: 25px;
+  margin-top: 15px;
   font-size: 16px;
 }
 
@@ -74,18 +100,52 @@ button:hover {
   transform: translateY(-2px);
 }
 
-#result {
-  margin-top: 25px;
+.expense-summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  background: #f9f9f9;
+}
+
+.expense-summary span {
+  flex: 1;
+}
+
+.expense-summary button {
+  background: #ff4d4d;
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.expense-summary button:hover {
+  background: #cc0000;
+}
+
+#income-result,
+#expense-result,
+#total-result {
+  margin-top: 20px;
   font-size: 1.4em;
   font-weight: bold;
   color: #333;
   transition: opacity 0.3s ease-in-out;
 }
 
-#result.fade-in {
+#income-result.fade-in,
+#expense-result.fade-in,
+#total-result.fade-in {
   opacity: 1;
 }
 
-#result.fade-out {
+#income-result.fade-out,
+#expense-result.fade-out,
+#total-result.fade-out {
   opacity: 0;
 }
