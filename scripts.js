@@ -1,7 +1,28 @@
 let expenses = [];
 let incomes = [];
 
-document.getElementById('add-expense').addEventListener('click', () => {
+document.getElementById('add-expense').addEventListener('click', addExpense);
+document.getElementById('add-income').addEventListener('click', addIncome);
+
+document
+  .getElementById('expense-form')
+  .addEventListener('keydown', function (event) {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      addExpense();
+    }
+  });
+
+document
+  .getElementById('income-form')
+  .addEventListener('keydown', function (event) {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      addIncome();
+    }
+  });
+
+function addExpense() {
   const expenseName = document.getElementById('expense-name-1').value;
   const expenseFrequency = document.getElementById('expense-frequency-1').value;
   const expenseTotal =
@@ -19,9 +40,9 @@ document.getElementById('add-expense').addEventListener('click', () => {
     calculateExpenses();
     calculateTotal();
   }
-});
+}
 
-document.getElementById('add-income').addEventListener('click', () => {
+function addIncome() {
   const incomeName = document.getElementById('income-name-1').value;
   const incomeFrequency = document.getElementById('income-frequency-1').value;
   const incomeTotal =
@@ -39,7 +60,7 @@ document.getElementById('add-income').addEventListener('click', () => {
     calculateIncome();
     calculateTotal();
   }
-});
+}
 
 function updateExpenseList() {
   const container = document.getElementById('expenses-summary');
@@ -108,7 +129,7 @@ function calculateIncome() {
     } else if (income.frequency === 'fortnightly') {
       totalWeeklyIncome += income.total / 2;
     } else if (income.frequency === 'monthly') {
-      totalWeeklyIncome += income.total / 4;
+      totalWeeklyIncome += income.total / 4.33;
     }
   });
 
@@ -127,7 +148,7 @@ function calculateExpenses() {
     } else if (expense.frequency === 'fortnightly') {
       totalWeeklyExpenses += expense.total / 2;
     } else if (expense.frequency === 'monthly') {
-      totalWeeklyExpenses += expense.total / 4;
+      totalWeeklyExpenses += expense.total / 4.33;
     }
   });
 
