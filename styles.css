@@ -18,7 +18,7 @@ body {
   max-width: 500px;
   width: 100%;
   text-align: center;
-  transition: transform 0.3s ease-in-out;
+  /* transition: transform 0.3s ease-in-out; */
 }
 
 /* .container:hover {
