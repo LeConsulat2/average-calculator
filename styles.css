@@ -21,9 +21,9 @@ body {
   transition: transform 0.3s ease-in-out;
 }
 
-.container:hover {
+/* .container:hover {
   transform: translateY(-10px);
-}
+} */
 
 h1 {
   margin-bottom: 25px;
