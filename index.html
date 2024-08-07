@@ -3,11 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>StudentHub Calculator</title>
+    <title>Income Calculator</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <div class="container">
+      <div>
+        <p>
+          Note: Please use this calculator only for a quick overview of your
+          student's financial situation. For a detailed summary, review the bank
+          statements provided by the student. Remember to also consider any
+          one-off payments mentioned by the student, as the Income Calculator
+          does not account for these.
+        </p>
+      </div>
       <h1>Income Calculator</h1>
       <form id="income-form">
         <div class="income-source">
@@ -38,17 +47,11 @@
           />
         </div>
         <div class="income-source">
-          <label for="oneoff">One-off: </label>
-          <input
-            type="number"
-            id="oneoff"
-            name="oneoff"
-            placeholder="Enter one-off income"
-          />
+          <label for="oneoff">Please Do Not Forget Any One-Off incomes! </label>
         </div>
         <button type="button" onclick="calculateIncome()">Calculate</button>
       </form>
-      <div id="result"></div>
+      <div id="result" class="fade-out"></div>
     </div>
     <script src="scripts.js"></script>
   </body>
