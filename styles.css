@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Raleway:wght@600&display=swap');
 body {
   font-family: 'Poppins', sans-serif;
   background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 130vh;
+  height: 115vh;
   margin: 0;
 }
 
@@ -25,17 +25,67 @@ body {
   transform: translateY(-10px);
 }
 
-.note {
+.note-container {
+  background: linear-gradient(135deg, #ffefba, #ffffff);
+  padding: 15px 20px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 2s ease-out;
   margin-bottom: 20px;
-  font-size: 14px;
-  color: #666;
   text-align: left;
+}
+
+.note {
+  font-family: 'Raleway', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+}
+
+.note strong {
+  font-weight: 700;
+  color: #d9534f;
+}
+
+.note .emoji {
+  font-size: 1.5em;
+  vertical-align: middle;
+  margin-right: 8px;
+  animation: bounce 2s infinite;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
 }
 
 .calculator {
   display: flex;
   justify-content: space-between;
   gap: 20px;
+  flex-wrap: wrap;
 }
 
 section {
@@ -44,6 +94,7 @@ section {
   padding: 20px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   flex: 1;
+  margin-bottom: 20px;
 }
 
 h2 {
@@ -100,7 +151,8 @@ button:hover {
   transform: translateY(-2px);
 }
 
-.expense-summary {
+.expense-summary,
+.income-summary {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -111,11 +163,13 @@ button:hover {
   background: #f9f9f9;
 }
 
-.expense-summary span {
+.expense-summary span,
+.income-summary span {
   flex: 1;
 }
 
-.expense-summary button {
+.expense-summary button,
+.income-summary button {
   background: #ff4d4d;
   border: none;
   color: white;
@@ -124,7 +178,8 @@ button:hover {
   cursor: pointer;
 }
 
-.expense-summary button:hover {
+.expense-summary button:hover,
+.income-summary button:hover {
   background: #cc0000;
 }
 

@@ -8,49 +8,48 @@
   </head>
   <body>
     <div class="container">
-      <div>
-        <p>
-          Note: Please use this calculator only for a quick overview of the
-          financial situation. For a detailed summary, review the bank
-          statements received. Remember to also consider any one-off payments
-          incomes as the Income Calculator does not account for these.
+      <div class="note-container">
+        <p class="note">
+          <span class="emoji">💡</span> Income Calculator -
+          <strong>Note:</strong> Please use this calculator only for a quick
+          overview of the financial situation. For a detailed summary, review
+          the bank statements received. Remember to also consider any one-off
+          income payments, as the Income Calculator does not account for these.
+          Please also note that the sources of income and expenses, including
+          the values are NOT saved. This calculator is purely for you to find
+          the quick income summary.
         </p>
       </div>
+
       <div class="calculator">
         <section class="income-section">
           <h2>Income</h2>
           <form id="income-form">
             <div class="income-source">
-              <label for="weekly">Weekly: </label>
+              <label for="income-name-1">Source: </label>
               <input
-                type="number"
-                id="weekly"
-                name="weekly"
-                placeholder="Enter weekly income"
+                type="text"
+                id="income-name-1"
+                name="income-name-1"
+                placeholder="Enter income source (optional)"
               />
-            </div>
-            <div class="income-source">
-              <label for="fortnightly">Fortnightly: </label>
+              <label for="income-frequency-1">Frequency: </label>
+              <select id="income-frequency-1" name="income-frequency-1">
+                <option value="weekly">Weekly</option>
+                <option value="fortnightly">Fortnightly</option>
+                <option value="monthly">Monthly</option>
+              </select>
+              <label for="income-total-1">Total: </label>
               <input
                 type="number"
-                id="fortnightly"
-                name="fortnightly"
-                placeholder="Enter fortnightly income"
-              />
-            </div>
-            <div class="income-source">
-              <label for="monthly">Monthly: </label>
-              <input
-                type="number"
-                id="monthly"
-                name="monthly"
-                placeholder="Enter monthly income"
+                id="income-total-1"
+                name="income-total-1"
+                placeholder="Enter total amount"
               />
             </div>
           </form>
-          <button type="button" onclick="calculateIncome()">
-            Calculate Income
-          </button>
+          <button type="button" id="add-income">Add Income</button>
+          <div id="incomes-summary"></div>
           <div id="income-result"></div>
         </section>
         <section class="expenses-section">
@@ -62,7 +61,7 @@
                 type="text"
                 id="expense-name-1"
                 name="expense-name-1"
-                placeholder="Enter expense name"
+                placeholder="Enter expense name (optional)"
               />
               <label for="expense-frequency-1">Frequency: </label>
               <select id="expense-frequency-1" name="expense-frequency-1">
@@ -81,15 +80,10 @@
           </form>
           <button type="button" id="add-expense">Add Expense</button>
           <div id="expenses-summary"></div>
-          <button type="button" onclick="calculateExpenses()">
-            Calculate Expenses
-          </button>
           <div id="expense-result"></div>
         </section>
         <section class="total-section">
-          <button type="button" onclick="calculateTotal()">
-            Calculate Total (Income - Expenses)
-          </button>
+          <h2>Total (Income - Expenses)</h2>
           <div id="total-result"></div>
         </section>
       </div>
