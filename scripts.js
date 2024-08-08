@@ -129,7 +129,7 @@ function calculateIncome() {
     } else if (income.frequency === 'fortnightly') {
       totalWeeklyIncome += income.total / 2;
     } else if (income.frequency === 'monthly') {
-      totalWeeklyIncome += income.total / 4.33;
+      totalWeeklyIncome += income.total / 4;
     }
   });
 
@@ -148,7 +148,7 @@ function calculateExpenses() {
     } else if (expense.frequency === 'fortnightly') {
       totalWeeklyExpenses += expense.total / 2;
     } else if (expense.frequency === 'monthly') {
-      totalWeeklyExpenses += expense.total / 4.33;
+      totalWeeklyExpenses += expense.total / 4;
     }
   });
 
